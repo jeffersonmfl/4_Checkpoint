@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net.Http;
 using System.Threading.Tasks;
 using ExchangeRateAPI.Interfaces;
+using ExchangeRateAPI.Models;
 
 namespace ExchangeRateAPI.Controllers
 {
@@ -17,6 +18,9 @@ namespace ExchangeRateAPI.Controllers
         }
 
         [HttpGet("rate")]
+        [Tags("Consulta de moedas")]
+        [ProducesResponseType(typeof(ExchangeRateApiSettings), 200)]
+        [ProducesResponseType(404)]
         public async Task<JsonResult> GetExchangeRate()
         {
             try
